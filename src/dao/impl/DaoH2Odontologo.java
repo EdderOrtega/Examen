@@ -25,9 +25,10 @@ public class DaoH2Odontologo implements IDao<Odontologo> {
             connection = H2Connection.getConnection();
             connection.setAutoCommit(false);
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
-            PreparedStatement.setInt(1,odontologo.getNumeroMatricula());
-            PreparedStatement.setString(2,odontologo.getNombre());
-            PreparedStatement.setString(2,odontologo.getApellido());
+            preparedStatement.setInt(1,odontologo.getNumeroMatricula());
+            preparedStatement.setString(2,odontologo.getNombre());
+            preparedStatement.setString(3,odontologo.getApellido());
+
             preparedStatement.executeUpdate();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
 
@@ -35,7 +36,7 @@ public class DaoH2Odontologo implements IDao<Odontologo> {
                 Integer idDesdeDd = resultSet.getInt(1);
                 odontologoAgregado = new Odontologo(idDesdeDd, odontologo.getNumeroMatricula(), odontologo.getNombre(), odontologo.getApellido());
             }
-            logger.info("Veterinario guardado en base de datos " + veterinario);
+            logger.info("Odontologo guardado en base de datos " + odontologoAgregado);
             connection.commit();
 
         }catch (Exception e) {
@@ -78,12 +79,12 @@ public class DaoH2Odontologo implements IDao<Odontologo> {
                 int matriculaOdo = resultSet.getInt(2);
                 String nombreOdo = resultSet.getString(3);
                 String apellidoOdo = resultSet.getString(4);
-                Odontologo veterinario = new Odontologo(id, matriculaOdo, nombreOdo, apellidoOdo);
-                odontologos.add(veterinario);
-                logger.info("Veterinario: " + veterinario);
+                Odontologo odontologo = new Odontologo(id, matriculaOdo, nombreOdo, apellidoOdo);
+                odontologos.add(odontologo);
+                logger.info("odontologo: " + odontologo);
             }
         }catch (Exception e) {
-            logger.error("Error en la búsqueda de todos los veterinarios: " + e.getMessage(), e);
+            logger.error("Error en la búsqueda de todos los odontologos: " + e.getMessage(), e);
         } finally {
             try {
                 if (connection != null) {
