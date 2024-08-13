@@ -1,0 +1,18 @@
+2024-08-12 19:38:55.000175-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ODONTOLOGO" not found (this database is empty); SQL statement:
+INSERT INTO ODONTOLOGO VALUES (DEFAULT,?,?,?) [42104-230]
+2024-08-12 19:38:55.075779-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ODONTOLOGO" not found (this database is empty); SQL statement:
+SELECT * FROM ODONTOLOGO [42104-230]
+2024-08-12 19:41:39.366521-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ODONTOLOGO" not found (this database is empty); SQL statement:
+INSERT INTO ODONTOLOGO VALUES (?,?,?) [42104-230]
+2024-08-12 19:41:39.462557-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ODONTOLOGO" not found (this database is empty); SQL statement:
+SELECT * FROM ODONTOLOGO [42104-230]
+2024-08-12 19:42:39.656405-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ODONTOLOGO" not found (this database is empty); SQL statement:
+INSERT INTO ODONTOLOGO VALUES (?,?,?) [42104-230]
+2024-08-12 19:42:39.814767-06:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "ODONTOLOGO" not found (this database is empty); SQL statement:
+SELECT * FROM ODONTOLOGO [42104-230]

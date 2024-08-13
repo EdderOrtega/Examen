@@ -24,6 +24,14 @@ public class DaoH2Odontologo implements IDao<Odontologo> {
         try{
             connection = H2Connection.getConnection();
             connection.setAutoCommit(false);
+
+            Statement stmt = connection.createStatement();
+            stmt.execute("CREATE TABLE IF NOT EXISTS ODONTOLOGO (" +
+                    "ID INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "MATRICULA INT NOT NULL, " +
+                    "NOMBRE VARCHAR(100) NOT NULL, " +
+                    "APELLIDO VARCHAR(100) NOT NULL);");
+
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setInt(1,odontologo.getNumeroMatricula());
             preparedStatement.setString(2,odontologo.getNombre());
@@ -81,7 +89,7 @@ public class DaoH2Odontologo implements IDao<Odontologo> {
                 String apellidoOdo = resultSet.getString(4);
                 Odontologo odontologo = new Odontologo(id, matriculaOdo, nombreOdo, apellidoOdo);
                 odontologos.add(odontologo);
-                logger.info("odontologo: " + odontologo);
+                logger.info("lista de odontologos: " + odontologo);
             }
         }catch (Exception e) {
             logger.error("Error en la búsqueda de todos los odontologos: " + e.getMessage(), e);
